@@ -1,0 +1,31 @@
+@mixin flex-all-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+    -webkit-align-items: center;
+}
+
+@mixin button($bg: #ffffff, $col: #4bcfa0, $h: 56px, $w: 64px, $bh: #4bcfa0, $ch: #ffffff, $fs: 16px) {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    border-radius: 16px;
+    color: $col;
+    background: $bg;
+    font-size: $fs;
+    width: $w;
+    height: $h;
+    &--hover:hover {
+        transition-duration: 0.3s;
+        background: $bh;
+        color: $ch;
+    }
+}
+
+@mixin text($c: #ffffff, $fs: #000000, $ls: #ffffff, $lh: #000000) {
+    font-size: $fs;
+    line-height: $lh;
+    letter-spacing: $ls;
+    color: $c;
+}

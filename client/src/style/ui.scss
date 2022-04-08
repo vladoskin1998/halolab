@@ -1,0 +1,96 @@
+.ui-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    @include flex-all-center;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1200;
+    &-body {
+        background: #ffffff;
+        border-radius: 24px;
+        position: relative;
+    }
+    &-close {
+        @include flex-all-center;
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        z-index: 1201;
+        cursor: pointer;
+        background: #f2f2f2;
+    }
+}
+
+.ui-input {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    border-radius: 16px;
+    width: 288px;
+    padding: 16px;
+    position: relative;
+    & > input {
+        position: relative;
+        width: 100%;
+        border: none;
+    }
+    &-error {
+        &_block {
+            border: 1px solid #e43f3f;
+        }
+        &_message {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            @include text($c: #e43f3f, $fs: 12px, $ls: -0.02em, $lh: 16px);
+        }
+        &_close {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translate(0, -50%);
+            width: 24px;
+            height: 24px;
+            background: #e43f3f;
+            border-radius: 50%;
+            @include flex-all-center;
+            & > svg {
+                & > path {
+                    stroke: white;
+                }
+            }
+        }
+    }
+}
+
+.ui-loader {
+    &-ring {
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+        padding-top: 15px;
+    }
+    &-ring:after {
+        content: " ";
+        display: block;
+        width: 64px;
+        height: 64px;
+        margin: 8px;
+        border-radius: 50%;
+        border: 6px solid #4bcfa0;
+        border-color: #4bcfa0 transparent #4bcfa0 transparent;
+        animation: ui-loader-ring 1.2s linear infinite;
+    }
+    @keyframes ui-loader-ring {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+}
